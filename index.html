@@ -1,18 +1,93 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0b0d">
+  <meta name="description" content="Three lightweight procedural 2D fire experiments built with HTML, CSS and vanilla JavaScript.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
-  <title>flame text</title>
+  <title>Flame Text — Procedural Fire Experiments</title>
 </head>
-
 <body>
-  <h1 id="heading">Flame</h1>
+  <a class="skip-link" href="#experiments">Skip to experiments</a>
 
-  <script src="script.js"></script>
+  <header class="hero">
+    <p class="eyebrow">CREATIVE CODING / CANVAS 2D</p>
+    <h1>FLAME TEXT</h1>
+    <p>Three experiments with procedural fire.</p>
+  </header>
+
+  <div class="controls-shell">
+    <aside class="palette-panel" aria-label="Fire palette controls">
+      <div class="palette-heading">
+        <span class="palette-dot" aria-hidden="true"></span>
+        <span>Fire palette</span>
+      </div>
+      <div class="palette-presets" role="group" aria-label="Palette presets">
+        <button type="button" data-palette="classic" class="is-active">Classic</button>
+        <button type="button" data-palette="blue">Blue</button>
+        <button type="button" data-palette="purple">Purple</button>
+        <button type="button" data-palette="toxic">Toxic</button>
+        <button type="button" data-palette="custom">Custom</button>
+      </div>
+      <div class="custom-colors" data-custom-colors hidden>
+        <label><span>Core</span><input type="color" data-color="core" value="#fff4b0"></label>
+        <label><span>Mid</span><input type="color" data-color="mid" value="#ffad21"></label>
+        <label><span>Outer</span><input type="color" data-color="outer" value="#ff321d"></label>
+      </div>
+    </aside>
+  </div>
+
+  <main id="experiments" class="showcase">
+    <section class="experiment" aria-labelledby="fire-01-title">
+      <div class="experiment-copy">
+        <p class="experiment-index">FIRE 01</p>
+        <h2 id="fire-01-title">Permanent Flame</h2>
+        <p>A direct evolution of the original particle experiment: always burning, still unmistakably 2D.</p>
+      </div>
+      <div class="flame-stage" data-flame-stage="permanent" aria-label="FLAME with permanent animated fire">
+        <canvas class="flame-canvas" aria-hidden="true"></canvas>
+      </div>
+    </section>
+
+    <section class="experiment" aria-labelledby="fire-02-title">
+      <div class="experiment-copy">
+        <p class="experiment-index">FIRE 02</p>
+        <h2 id="fire-02-title">Hover to Ignite</h2>
+        <p>Move over the word to ignite it. On touch devices, tap once to ignite and tap again to extinguish.</p>
+      </div>
+      <div class="flame-stage interactive-stage" data-flame-stage="hover" tabindex="0" role="button" aria-label="FLAME. Hover, focus, or tap to ignite">
+        <canvas class="flame-canvas" aria-hidden="true"></canvas>
+      </div>
+      <p class="interaction-hint" aria-hidden="true"><span class="desktop-hint">Hover / focus</span><span class="touch-hint">Tap</span> to ignite</p>
+    </section>
+
+    <section class="experiment experiment-danger" aria-labelledby="fire-03-title">
+      <div class="experiment-copy">
+        <p class="experiment-index">FIRE 03</p>
+        <h2 id="fire-03-title">Do Not Click</h2>
+        <p>The final FLAME looks identical in spirit to the others, but burns away when clicked or activated by keyboard.</p>
+      </div>
+      <div class="burn-stage" data-burn-stage aria-label="FLAME. Click or press Enter or Space to ignite the burn effect.">
+        <canvas class="burn-canvas" aria-hidden="true"></canvas>
+        <button class="burn-hit-target" type="button" aria-label="FLAME"><span class="sr-only">FLAME</span></button>
+      </div>
+      <div class="burn-result" data-burn-result hidden aria-live="polite">
+        <p>You were warned. 🔥</p>
+        <button class="restore-button" type="button" data-restore>Restore</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Procedural Canvas 2D · Vanilla JavaScript · No external libraries</span>
+  </footer>
+
+  <noscript>
+    <p class="noscript-message">JavaScript is required to run the fire experiments.</p>
+  </noscript>
+
+  <script src="script.js" defer></script>
 </body>
-
 </html>
